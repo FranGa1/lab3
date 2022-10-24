@@ -1,0 +1,21 @@
+<h1>Agregar un nuevo mosntruo</h1>
+
+
+<% m = Monster.new %>
+<%= form_with model: m do |f| %>
+<div class=form-group>
+    <div class="d-flex">
+        <label for="nombre_monster" class="form-label align-self-center fs-5 p-2 w-25">Nombre del monstruo </label>
+        <%# <div class=""> %>
+        <%= f.text_area :name, placeholder: "...", class:"form-control align-self-center", id:"nombre_monster", style:"margin-top:5px", rows:1%>
+        <%# </div> %>
+    </div>
+
+    <label for="desription_monster" class="form-label fs-5 p-2">Descripción del monstruo </label>
+    <%= f.text_area :description, placeholder: "...", class:"form-control", id:"desription_monster", rows:5%>
+
+    <div class="d-flex justify-content-end">
+        <%= f.submit "Agregar", class:"btn btn-info", style:"margin-top:5px" %>
+    </div>
+  </div>
+<% end %>

@@ -1,1 +1,32 @@
-<%# Update me %><%= @monster.inspect %>
+<h1> <%= @monster.name %> </h1>
+
+<% tweets = Tweet.where(monster_id: @monster.id)%>
+<div class="container text-center">
+    <div class="row border-5 border border-success">
+
+        <div class="col">
+            <h5>Descripcion</h5>
+            <p> <%= @monster.description %></p>
+            <button class="btn bg-danger text-white rounded-1 p-1" style="font-size:14px;font-family:'Verdana'">
+                        <%= link_to "Destroy", @monster, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></button>
+        </div>
+
+        <div class="col border border-danger text-center">
+            <div class="d-flex flex-column align-items-center">
+                <h5 >Tweets</h5>
+                <%-tweets.each do |tweet|-%>
+                    <%# <div class="border border-warning text-center"> %>
+                    <div class="border border-3 border-info rounded-1 w-75 p-1">
+                        <tr>
+                            <td><%= tweet.content %></td>
+                            <td><%= tweet.updated_at%></td>
+                        </tr>
+                    </div>
+                <br>
+                <%-end-%>
+            </div>
+        </div>
+    </div>
+</div>
+
+

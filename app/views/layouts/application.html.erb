@@ -10,10 +10,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column border border-5 border-warning">
     <%= render "application/header" %>
-    <div class="container pt-4">
+    <div class="container pt-4 flex-grow-1">
       <%= yield %>
     </div>
+    <%= render "application/footer" %>
   </body>
+
 </html>
